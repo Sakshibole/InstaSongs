@@ -1,0 +1,72 @@
+.about-page {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+  padding: 50px 0;
+  color: white;
+  text-align: center;
+}
+
+.about-page h1 {
+  font-size: 48px;
+  margin-bottom: 15px;
+
+  background: linear-gradient(90deg, #833AB4, #E1306C, #FCAF45);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.about-subtitle {
+  max-width: 700px;
+  margin: auto;
+  color: #d1d5db;
+  font-size: 18px;
+  line-height: 1.8;
+  margin-bottom: 50px;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
+  gap: 25px;
+}
+
+.about-card {
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.15);
+  backdrop-filter: blur(12px);
+
+  border-radius: 20px;
+
+  padding: 30px;
+
+  transition: .3s;
+}
+
+.about-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 35px rgba(0,0,0,.3);
+}
+
+.about-card h2 {
+  margin-bottom: 15px;
+  color: #FCAF45;
+  font-size: 24px;
+}
+
+.about-card p {
+  color: #d1d5db;
+  line-height: 1.8;
+}
+
+@media(max-width:768px){
+
+.about-page h1{
+    font-size:36px;
+}
+
+.about-subtitle{
+    font-size:16px;
+}
+
+}

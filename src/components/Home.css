@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+.home {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+  min-height: calc(100vh - 80px);
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  color: white;
+}
+
+.home-content {
+  width: 50%;
+}
+
+.tag {
+  display: inline-block;
+  padding: 10px 20px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 30px;
+  color: #FCAF45;
+  margin-bottom: 25px;
+  font-size: 15px;
+}
+
+.home-content h1 {
+  font-size: 60px;
+  line-height: 1.2;
+
+  background: linear-gradient(90deg,#833AB4,#E1306C,#FCAF45);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.quote {
+  margin-top: 20px;
+  font-size: 22px;
+  font-style: italic;
+  color: white;
+}
+
+.description {
+  margin-top: 20px;
+  font-size: 18px;
+  line-height: 1.8;
+  color: #d1d5db;
+}
+
+.buttons {
+  display: flex;
+  gap: 20px;
+  margin-top: 35px;
+}
+
+.primary-btn {
+  padding: 14px 30px;
+  border: none;
+  border-radius: 30px;
+
+  background: linear-gradient(90deg,#833AB4,#E1306C,#FCAF45);
+
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.primary-btn:hover {
+  transform: translateY(-3px);
+}
+
+.secondary-btn {
+  padding: 14px 30px;
+  border: 2px solid #E1306C;
+  border-radius: 30px;
+  background: transparent;
+
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.secondary-btn:hover {
+  background: #E1306C;
+}
+
+.home-image {
+  width: 45%;
+  display: flex;
+  justify-content: center;
+}
+
+.home-image img {
+  width: 450px;
+  max-width: 100%;
+}
+
+@media (max-width:900px) {
+
+  .home {
+    flex-direction: column-reverse;
+    text-align: center;
+    padding: 50px 0;
+  }
+
+  .home-content,
+  .home-image {
+    width: 100%;
+  }
+
+  .home-content h1 {
+    font-size: 42px;
+  }
+
+  .home-image img {
+    width: 300px;
+    margin-bottom: 40px;
+  }
+
+  .buttons {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+}

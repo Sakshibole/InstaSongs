@@ -1,0 +1,81 @@
+.Navbar {
+  width: 100%;
+  background: #000;
+  color: white;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 15px 60px;
+
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo {
+  font-size: 28px;
+  font-weight: bold;
+
+  background: linear-gradient(90deg, #833AB4, #E1306C, #FCAF45);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 35px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #FCAF45;
+  font-size: 18px;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.nav-links a:hover {
+  color: #E1306C;
+}
+
+.login-btn {
+  padding: 10px 25px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  color: white;
+
+  background: linear-gradient(
+    90deg,
+    #833AB4,
+    #E1306C,
+    #FCAF45
+  );
+
+  transition: 0.3s;
+}
+
+.login-btn:hover {
+  transform: scale(1.05);
+}
+
+@media (max-width: 900px) {
+
+  .Navbar {
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+
+}
