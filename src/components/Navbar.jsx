@@ -1,25 +1,64 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import "./Navbar.css";
+import { Link, useNavigate } from "react-router-dom";
+import "./Navbar.css"
 
-const Navbar = () => {
+function Navbar() {
+
+  const navigate = useNavigate();
+
+  const loggedInUser = JSON.parse(localStorage.getItem("user"));
+
+  const logout = () => {
+
+    localStorage.removeItem("user");
+
+    alert("Logout Successful");
+
+    navigate("/login");
+
+    window.location.reload();
+
+  };
+
   return (
-    <nav className="Navbar">
-      <div className="logo">
-        🎵 InstaVibe
+
+    <nav className="navbar">
+
+      <h2>🎵InstaVibe</h2>
+
+      <div>
+
+        <Link to="/home">Home</Link>
+
+        <Link to="/songs">Songs</Link>
+
+        <Link to="/captions">Captions</Link>
+
+        <Link to="/favorites">Favorites</Link>
+
+        <Link to="/about">About</Link>
+
+        {
+
+          loggedInUser ?
+
+            <button onClick={logout}>
+              Logout
+            </button>
+
+            :
+
+            <Link to="/login">
+              <button>Login</button>
+            </Link>
+
+        }
+
       </div>
 
-      <div className="nav-links">
-        <Link to="/Home">Home</Link>
-        <Link to="/Songs">Songs</Link>
-        <Link to="/Captions">Captions</Link>
-        <Link to="/Favorites">Favorites</Link>
-        <Link to="/About">About</Link>
-      </div>
-
-      <button className="login-btn">Login</button>
     </nav>
+
   );
-};
+
+}
 
 export default Navbar;
