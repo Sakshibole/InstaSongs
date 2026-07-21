@@ -1,22 +1,19 @@
 import { Link, useNavigate } from "react-router-dom";
+import { useState } from "react";
 import "./Navbar.css"
 
 function Navbar() {
 
   const navigate = useNavigate();
-
   const loggedInUser = JSON.parse(localStorage.getItem("user"));
+   const [open, setOpen] = useState(false);
 
   const logout = () => {
 
     localStorage.removeItem("user");
-
     alert("Logout Successful");
-
     navigate("/login");
-
     window.location.reload();
-
   };
 
   return (
@@ -25,7 +22,7 @@ function Navbar() {
 
       <h2>🎵InstaVibe</h2>
 
-      <div>
+      <div className="nav-links">
 
         <Link to="/home">Home</Link>
 
@@ -37,25 +34,62 @@ function Navbar() {
 
         <Link to="/about">About</Link>
 
-        {
+     </div>
 
-          loggedInUser ?
+          {loggedInUser ? (
 
-            <button onClick={logout}>
-              Logout
-            </button>
+        <div className="profile">
 
-            :
+          <div
+            className="profile-header"
+            onClick={() => setOpen(!open)}
+          >
+            <img
+              src={loggedInUser.profileImage || "/images/profile.jpg"}
+              alt="Profile"
+              className="profile-img"
+            />
 
-            <Link to="/login">
-              <button>Login</button>
-            </Link>
+            <span>{loggedInUser.name}</span>
 
-        }
+            <span>▼</span>
+          </div>
 
-      </div>
+          {open && (
+
+            <div className="dropdown">
+
+              <div className="dropdown-user">
+                <h4>{loggedInUser.name}</h4>
+                <p>{loggedInUser.email}</p>
+              </div>
+
+              <Link to="/favorites">❤️ Favorites</Link>
+
+              <Link to="/Profile">👤 My Profile</Link>
+
+              <Link to="/settings">⚙ Settings</Link>
+
+              <button onClick={logout}>
+                Logout
+              </button>
+
+            </div>
+
+          )}
+
+        </div>
+
+      ) : (
+
+        <Link to="/login">
+          <button>Login</button>
+        </Link>
+
+      )}
 
     </nav>
+
 
   );
 

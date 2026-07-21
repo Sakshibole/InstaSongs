@@ -40,7 +40,7 @@ const songs = [
     id: 6,
     title: "Kesariya",
     artist: "Arijit Singh",
-    mood: "Sunset",
+    mood: "Love",
   },
   {
     id: 7,

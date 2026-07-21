@@ -5,7 +5,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 15px 60px;
-    background-color: black;
+   background:#0B1120;
     /* background: linear-gradient(90deg, #833ab4, #fd1d1d, #fcb045); */
     box-shadow: 0 4px 12px rgba(0,0,0,0.2);
     position: sticky;
@@ -25,10 +25,10 @@
 
 /* Links Container */
 
-.navbar div {
-    display: flex;
-    align-items: center;
-    gap: 25px;
+.nav-links{
+    display:flex;
+    align-items:center;
+    gap:25px;
 }
 
 /* Links */
@@ -90,4 +90,103 @@
         font-size: 15px;
     }
 
+}
+
+/* Container */
+
+.profile-menu{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    background:#fff;
+    width:220px;
+    padding:15px;
+    border-radius:12px;
+    box-shadow:0 4px 12px rgba(0,0,0,0.2);
+}
+
+/* User Information */
+
+.user-info{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    margin-bottom:15px;
+}
+
+.user-info h4{
+    margin:0;
+    font-size:18px;
+    color:#222;
+}
+
+.user-info p{
+    margin-top:5px;
+    font-size:14px;
+    color:#777;
+    word-break:break-word;
+    text-align:center;
+}
+
+/* Logout Button */
+
+.profile-menu button{
+    width:100%;
+    padding:10px;
+    border:none;
+    border-radius:8px;
+    background:#E1306C;
+    color:white;
+    font-size:15px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.profile-menu button:hover{
+    background:#c2185b;
+}
+
+.profile{
+    position: relative;
+}
+
+.profile-header{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    cursor:pointer;
+    color:white;
+}
+
+.dropdown{
+    position:absolute;
+    top:55px;      /* below profile */
+    right:0;       /* align to right */
+    width:260px;
+     background: linear-gradient(90deg,#833AB4,#E1306C,#FCAF45);
+    border-radius:12px;
+    box-shadow:0 8px 20px rgba(0,0,0,.25);
+    z-index:9999;
+
+    display:flex;
+    flex-direction:column;
+}
+
+/* Profile Image */
+.profile-img{
+    width:42px;
+    height:42px;
+    border-radius:50%;
+    object-fit:cover;
+    border:2px solid #E1306C;
+    cursor:pointer;
+    transition:0.3s ease;
+}
+
+/* Hover Effect */
+.profile-img:hover{
+    transform:scale(1.08);
+    border-color:#ff6f91;
+    box-shadow:0 0 10px rgba(225,48,108,0.5);
 }

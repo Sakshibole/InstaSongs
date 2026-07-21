@@ -9,6 +9,7 @@ import Favorites from "./components/Favorites";
 import About from "./components/About";
 import Login from "./components/Login";
 import Register from "./components/Register";
+import Profile from "./components/Profile";
 // import Footer from "./components/Footer";
 
 const App = () => {
@@ -26,6 +27,7 @@ const App = () => {
         <Route path="/About" element={<About />} />
          <Route path="/Login" element={<Login />} />
          <Route path="/Register" element={<Register />} />
+         <Route path="/Profile" element={<Profile />} />
       </Routes>
 
       {/* <Footer /> */}
