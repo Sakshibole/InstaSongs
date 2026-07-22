@@ -1,7 +1,9 @@
 import React from "react";
 import "./Home.css";
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
+  const navigate = useNavigate();
   return (
     <>
     <section className="home">
@@ -45,32 +47,32 @@ const Home = () => {
         <h2>Featured Artists</h2>
 
         <div className="artist-container">
-          <div className="artist-card">
+          <div className="artist-card"  onClick={() => navigate("/Songs/Arijit Singh")}>
             <img src="/images/Arijit-Singh.avif" alt="Arijit Singh" />
             <p>Arijit Singh</p>
           </div>
 
-          <div className="artist-card">
+          <div className="artist-card"  onClick={() => navigate("/Songs/Shreya Ghoshal")}>
             <img src="/images/Shreya_Ghoshal.jpg" alt="Shreya goshal" />
             <p>Shreya Ghoshal</p>
           </div>
 
-          <div className="artist-card">
+          <div className="artist-card"  onClick={() => navigate("/Songs/AP Dhillon")}>
             <img src="/images/ap-dhillon.avif" alt="AP Dhillon" />
             <p>AP Dhillon</p>
           </div>
 
-          <div className="artist-card">
+          <div className="artist-card"  onClick={() => navigate("/Songs/Armaan Malik")}>
             <img src="/images/Armaan_Malik.jpg" alt="Armaan Malik" />
             <p>Armaan Malik</p>
           </div>
 
-           <div className="artist-card">
+           <div className="artist-card"  onClick={() => navigate("/Songs/Pritam")}>
             <img src="/images/pritam.jpg" alt="pritam" />
             <p>Pritam</p>
           </div>
 
-          <div className="artist-card">
+          <div className="artist-card" onClick={() => navigate("/Songs/KK")}>
             <img src="/images/KK.jpg" alt="KK" />
             <p>KK</p>
           </div>

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./Songs.css";
+import { useParams } from "react-router-dom";
 
 const songs = [
    {
@@ -73,129 +74,145 @@ const songs = [
     mood: "Party",
   },
   {
-    id: 12,
-    title: "Lovely",
-    artist: "Billie Eilish",
-    mood: "Sad",
-  },
-  {
-    id: 13,
-    title: "Heat Waves",
-    artist: "Glass Animals",
-    mood: "Chill",
-  },
-  {
-    id: 14,
-    title: "Faded",
-    artist: "Alan Walker",
-    mood: "Relax",
-  },
-  {
-    id: 15,
-    title: "Closer",
-    artist: "The Chainsmokers",
-    mood: "Memories",
-  },
-  {
-    id: 16,
-    title: "Senorita",
-    artist: "Shawn Mendes",
-    mood: "Romantic",
-  },
-  {
-    id: 17,
-    title: "Levitating",
-    artist: "Dua Lipa",
-    mood: "Dance",
-  },
-  {
-    id: 18,
-    title: "Calm Down",
-    artist: "Rema",
-    mood: "Party",
-  },
-  {
-    id: 19,
-    title: "Blinding Lights",
-    artist: "The Weeknd",
-    mood: "Night Drive",
-  },
-  {
-    id: 20,
-    title: "Perfect Strangers",
-    artist: "Jonas Blue",
-    mood: "Travel",
-  },
-  {
-    id: 21,
-    title: "Raataan Lambiyan",
-    artist: "Jubin Nautiyal",
-    mood: "Love",
-  },
-  {
-    id: 22,
-    title: "Tum Hi Ho",
-    artist: "Arijit Singh",
-    mood: "Emotional",
-  },
-  {
-    id: 23,
-    title: "Khairiyat",
-    artist: "Arijit Singh",
-    mood: "Heartbreak",
-  },
-  {
-    id: 24,
-    title: "Dil Diyan Gallan",
-    artist: "Atif Aslam",
-    mood: "Romantic",
-  },
-  {
-    id: 25,
-    title: "Tera Hone Laga Hoon",
-    artist: "Atif Aslam",
-    mood: "Love",
-  },
-  {
-    id: 26,
-    title: "Agar Tum Saath Ho",
-    artist: "Alka Yagnik",
-    mood: "Sad",
-  },
-  {
-    id: 27,
-    title: "Hall of Fame",
-    artist: "The Script",
-    mood: "Inspiration",
-  },
-  {
-    id: 28,
-    title: "Unstoppable",
-    artist: "Sia",
-    mood: "Confidence",
-  },
-  {
-    id: 29,
-    title: "Bones",
-    artist: "Imagine Dragons",
-    mood: "Workout",
-  },
-  {
-    id: 30,
-    title: "Starboy",
-    artist: "The Weeknd",
-    mood: "Night",
-  },
+  id: 12,
+  title: "Mere Dholna 3.0",
+  artist: "Shreya Ghoshal",
+  mood: "Romantic",
+  image: "/images/mere-dholna.jpg",
+  link: "https://youtu.be/"
+},
+{
+  id: 13,
+  title: "Sun Raha Hai (Female)",
+  artist: "Shreya Ghoshal",
+  mood: "Sad",
+  image: "/images/sun-raha-hai-female.jpg",
+  link: "https://youtu.be/"
+},
+{
+  id: 14,
+  title: "Param Sundari",
+  artist: "Shreya Ghoshal",
+  mood: "Party",
+  image: "/images/param-sundari.jpg",
+  link: "https://youtu.be/"
+},
+{
+  id: 15,
+  title: "Excuses",
+  artist: "AP Dhillon",
+  mood: "Chill",
+  image: "/images/excuses.jpg",
+  link: "https://youtu.be/"
+},
+{
+  id: 16,
+  title: "Brown Munde",
+  artist: "AP Dhillon",
+  mood: "Party",
+  image: "/images/brown-munde.jpg",
+  link: "https://youtu.be/"
+},
+{
+  id: 17,
+  title: "Insane",
+  artist: "AP Dhillon",
+  mood: "Energetic",
+  image: "/images/insane.jpg",
+  link: "https://youtu.be/"
+},
+{
+  id: 18,
+  title: "Bol Do Na Zara",
+  artist: "Armaan Malik",
+  mood: "Romantic",
+  image: "/images/bol-do-na-zara.jpg",
+  link: "https://youtu.be/"
+},
+{
+  id: 19,
+  title: "Pehla Pyaar",
+  artist: "Armaan Malik",
+  mood: "Love",
+  image: "/images/pehla-pyaar.jpg",
+  link: "https://youtu.be/"
+},
+{
+  id: 20,
+  title: "Main Rahoon Ya Na Rahoon",
+  artist: "Armaan Malik",
+  mood: "Emotional",
+  image: "/images/main-rahoon.jpg",
+  link: "https://youtu.be/"
+},
+{
+  id: 21,
+  title: "Zara Sa",
+  artist: "KK",
+  mood: "Romantic",
+  image: "/images/zara-sa.jpg",
+  link: "https://youtu.be/"
+},
+{
+  id: 22,
+  title: "Khuda Jaane",
+  artist: "KK",
+  mood: "Love",
+  image: "/images/khuda-jaane.jpg",
+  link: "https://youtu.be/"
+},
+{
+  id: 23,
+  title: "Tu Hi Meri Shab Hai",
+  artist: "KK",
+  mood: "Romantic",
+  image: "/images/tu-hi-meri-shab-hai.jpg",
+  link: "https://youtu.be/"
+},
+{
+  id: 24,
+  title: "Kesariya",
+  artist: "Pritam",
+  mood: "Romantic",
+  image: "/images/kesariya.jpg",
+  link: "https://youtu.be/"
+},
+{
+  id: 25,
+  title: "Tum Se Hi",
+  artist: "Pritam",
+  mood: "Love",
+  image: "/images/tum-se-hi.jpg",
+  link: "https://youtu.be/"
+},
+{
+  id: 26,
+  title: "Bulleya",
+  artist: "Pritam",
+  mood: "Emotional",
+  image: "/images/bulleya.jpg",
+  link: "https://youtu.be/"
+},
 ];
 
 const Songs = () => {
   const [search, setSearch] = useState("");
+  const { artist } = useParams();
 
-  const filteredSongs = songs.filter(
-    (song) =>
-      song.mood.toLowerCase().includes(search.toLowerCase()) ||
-      song.title.toLowerCase().includes(search.toLowerCase())
-  );
+ const filteredSongs = songs.filter((song) => {
+  // Filter by artist if an artist was clicked
+  const matchesArtist = artist
+    ? song.artist.toLowerCase() === artist.toLowerCase()
+    : true;
+
+  // Filter by search
+  const matchesSearch =
+    song.title.toLowerCase().includes(search.toLowerCase()) ||
+    song.artist.toLowerCase().includes(search.toLowerCase()) ||
+    song.mood.toLowerCase().includes(search.toLowerCase());
+
+  return matchesArtist && matchesSearch;
+});
 
   return (
     <div className="songs-page">
