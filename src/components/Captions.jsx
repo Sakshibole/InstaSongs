@@ -42,6 +42,11 @@ const captions = [
     category: "Selfie",
     text: "Confidence level: Selfie with no filter 📸",
   },
+  {
+    id: 9,
+    category: "Attitude",
+    text: "Gonna hate me, I couldn't care anymore 📸",
+  },
 ];
 
 const Captions = () => {
