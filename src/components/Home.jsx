@@ -29,8 +29,8 @@ const Home = () => {
         </p>
 
         <div className="buttons">
-          <button className="primary-btn">Explore Songs</button>
-          <button className="secondary-btn">Browse Captions</button>
+          <button className="primary-btn" onClick={() => navigate("/Songs")}>Explore Songs</button>
+          <button className="secondary-btn" onClick={() => navigate("/Captions")}>Browse Captions</button>
         </div>
 
       </div>
@@ -72,10 +72,10 @@ const Home = () => {
             <p>Pritam</p>
           </div>
 
-          <div className="artist-card" onClick={() => navigate("/Songs/KK")}>
+          {/* <div className="artist-card" onClick={() => navigate("/Songs/KK")}>
             <img src="/images/KK.jpg" alt="KK" />
             <p>KK</p>
-          </div>
+          </div> */}
         </div>
       </section>
     </>

@@ -96,7 +96,7 @@
 
 /* Button */
 
-.song-card button {
+.play {
   width: 100%;
 
   padding: 12px;
@@ -121,7 +121,7 @@
   transition: .3s;
 }
 
-.song-card button:hover {
+.play:hover {
   transform: scale(1.05);
 }
 
@@ -135,4 +135,9 @@
     grid-template-columns:1fr;
 }
 
+}
+.favorite{
+  background-color: none;
+  margin-right: 5px;
+  margin-top:5px;
 }

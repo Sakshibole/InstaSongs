@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Songs.css";
+import axios from "axios";
 import { useParams } from "react-router-dom";
 
 const songs = [
@@ -197,7 +198,25 @@ const songs = [
 
 const Songs = () => {
   const [search, setSearch] = useState("");
-  const { artist } = useParams();
+const [favorites, setFavorites] = useState([]);
+ const { artist } = useParams();
+
+ useEffect(() => {
+  const loggedInUser = JSON.parse(localStorage.getItem("user"));
+
+  if (!loggedInUser) return;
+
+  axios
+    .get(`http://localhost:9091/favorites/${loggedInUser.id}`)
+    .then((response) => {
+      setFavorites(response.data);
+    })
+    .catch((error) => console.log(error));
+}, []);
+
+const isFavorite = (songTitle) => {
+  return favorites.some((fav) => fav.songTitle === songTitle);
+};
 
  const filteredSongs = songs.filter((song) => {
   // Filter by artist if an artist was clicked
@@ -214,6 +233,52 @@ const Songs = () => {
   return matchesArtist && matchesSearch;
 });
 
+const addToFavorites = async (song) => {
+
+  const loggedInUser = JSON.parse(localStorage.getItem("user"));
+
+  if (!loggedInUser) {
+    alert("Please login first.");
+    return;
+  }
+
+  try {
+
+    if (isFavorite(song.title)) {
+
+      await axios.delete(
+        `http://localhost:9091/favorites/${loggedInUser.id}/${song.title}`
+      );
+
+      setFavorites(
+        favorites.filter((fav) => fav.songTitle !== song.title)
+      );
+
+      alert("Removed from Favorites 💔");
+
+    } else {
+
+      const response = await axios.post(
+        "http://localhost:9091/favorites",
+        {
+          userId: loggedInUser.id,
+          songTitle: song.title,
+          artist: song.artist,
+          mood: song.mood,
+          youtubeLink: song.link,
+          image: song.image
+        }
+      );
+
+      setFavorites([...favorites, response.data]);
+
+      alert("Added to Favorites ❤️");
+    }
+
+  } catch (error) {
+    console.log(error);
+  }
+};
   return (
     <div className="songs-page">
 
@@ -247,9 +312,11 @@ const Songs = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <button>▶ Play</button>
+              <button className="play">▶ Play</button>
             </a>
-
+            <button className="favorite" onClick={() => addToFavorites(song)}>
+                      {isFavorite(song.title) ? "❤️" : "🤍"}
+              </button>
           </div>
         ))}
 

@@ -47,6 +47,11 @@ const captions = [
     category: "Attitude",
     text: "Gonna hate me, I couldn't care anymore 📸",
   },
+   {
+    id: 10,
+    category: "self-love",
+    text: "My heart belongs to ME ❤️",
+  },
 ];
 
 const Captions = () => {
