@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useParams } from "react-router-dom";
 import "./Captions.css";
 
 const captions = [
@@ -56,12 +57,19 @@ const captions = [
 
 const Captions = () => {
   const [search, setSearch] = useState("");
+  const { category } = useParams();
 
-  const filteredCaptions = captions.filter(
-    (item) =>
-      item.category.toLowerCase().includes(search.toLowerCase()) ||
-      item.text.toLowerCase().includes(search.toLowerCase())
-  );
+ const filteredCaptions = captions.filter((item) => {
+  const matchesCategory = category
+    ? item.category.toLowerCase() === category.toLowerCase()
+    : true;
+
+  const matchesSearch =
+    item.category.toLowerCase().includes(search.toLowerCase()) ||
+    item.text.toLowerCase().includes(search.toLowerCase());
+
+  return matchesCategory && matchesSearch;
+});
 
   const copyCaption = (text) => {
     navigator.clipboard.writeText(text);

@@ -76,6 +76,40 @@ const Home = () => {
             <img src="/images/KK.jpg" alt="KK" />
             <p>KK</p>
           </div> */}
+
+
+          <section className="featured-artists">
+          <h2>explore captions</h2>
+
+          <div className="artist-container">
+
+          <div className="artist-card"  onClick={() => navigate("/Captions/Love")}>
+            <img src="/images/Love.jpg" alt="Love" />
+            <p>Love</p>
+          </div>
+          
+           <div className="artist-card"  onClick={() => navigate("/Captions/Funny")}>
+            <img src="/images/funny.avif" alt="Funny" />
+            <p>Funny</p>
+          </div>
+
+           <div className="artist-card"  onClick={() => navigate("/Captions/Travel")}>
+            <img src="/images/travel.jpg" alt="Travel" />
+            <p>Travel</p>
+          </div>
+
+          <div className="artist-card"  onClick={() => navigate("/Captions/Motivation")}>
+            <img src="/images/motivation.avif" alt="motivation" />
+            <p>Motivation</p>
+          </div>
+
+          <div className="artist-card"  onClick={() => navigate("/Captions/Attitude")}>
+            <img src="/images/attitude.avif" alt="Attitude" />
+            <p>Attitude</p>
+          </div>
+
+          </div>
+        </section>
         </div>
       </section>
     </>
